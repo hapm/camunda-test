@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:di="http://www.omg.org/spec/CMMN/20151109/DI" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Test" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
+  <cmmn:case id="TriggeredStageAndAdditionalPlanItemCase" name="A case with a triggered stage and an addtional PlanItem">
+    <cmmn:casePlanModel id="CasePlanModelWithTriggeredStageAndAdditionPlanItem" name="A CasePlanModel with triggered Stage and an additional PlanItem">
+      <cmmn:planItem id="simpleTriggeringPlanItem" name="a simple task triggering a stage" definitionRef="SimpleTask" />
+      <cmmn:planItem id="StagePlanItem" definitionRef="SomeStage">
+        <cmmn:entryCriterion id="EntryCriterion_1uu3uz6" sentryRef="Sentry_14hlj14" />
+      </cmmn:planItem>
+      <cmmn:planItem id="AnotherPlanItem" definitionRef="HumanTask_10qeu32" />
+      <cmmn:sentry id="Sentry_14hlj14">
+        <cmmn:planItemOnPart id="PlanItemOnPart_0uv4erl" sourceRef="simpleTriggeringPlanItem">        <cmmn:standardEvent>complete</cmmn:standardEvent>
+</cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:humanTask id="SimpleTask" name="a simple task" />
+      <cmmn:stage id="SomeStage" name="some stage">
+        <cmmn:planItem id="StagedPlanItem" definitionRef="HumanTask_0czch9n" />
+        <cmmn:planItem id="TriggeredPlanItem" definitionRef="TriggeredTask">
+          <cmmn:entryCriterion id="EntryCriterion_11al4fw" sentryRef="Sentry_12w5clz" />
+        </cmmn:planItem>
+        <cmmn:sentry id="Sentry_12w5clz">
+          <cmmn:planItemOnPart id="PlanItemOnPart_0wzkeug" sourceRef="AnotherPlanItem">          <cmmn:standardEvent>complete</cmmn:standardEvent>
+</cmmn:planItemOnPart>
+        </cmmn:sentry>
+        <cmmn:humanTask id="HumanTask_0czch9n" name="staged task" />
+        <cmmn:humanTask id="TriggeredTask" name="triggered task" />
+      </cmmn:stage>
+      <cmmn:humanTask id="HumanTask_10qeu32" name="another task" />
+    </cmmn:casePlanModel>
+  </cmmn:case>
+  <cmmndi:CMMNDI>
+    <cmmndi:CMMNDiagram id="_5a66685b-5f57-4e2f-b1d1-acca4fae04b2">
+      <cmmndi:Size xsi:type="dc:Dimension" width="500" height="500" />
+      <cmmndi:CMMNShape id="DI_CasePlanModel_1" cmmnElementRef="CasePlanModelWithTriggeredStageAndAdditionPlanItem">
+        <dc:Bounds x="191" y="86" width="670" height="487" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0pke9l7_di" cmmnElementRef="simpleTriggeringPlanItem">
+        <dc:Bounds x="303" y="152" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_01g67oj_di" cmmnElementRef="StagePlanItem">
+        <dc:Bounds x="548" y="106" width="207" height="412" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_168pgpt_di" cmmnElementRef="StagedPlanItem">
+        <dc:Bounds x="599" y="153" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_1uu3uz6_di" cmmnElementRef="EntryCriterion_1uu3uz6">
+        <dc:Bounds x="538" y="179" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0uv4erl_di" cmmnElementRef="PlanItemOnPart_0uv4erl" targetCMMNElementRef="EntryCriterion_1uu3uz6" isStandardEventVisible="true">
+        <di:waypoint xsi:type="dc:Point" x="403" y="192" />
+        <di:waypoint xsi:type="dc:Point" x="538" y="193" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="447" y="171.5" width="51" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_0ht95v2_di" cmmnElementRef="AnotherPlanItem">
+        <dc:Bounds x="303" y="388" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0wnqw5k_di" cmmnElementRef="TriggeredPlanItem">
+        <dc:Bounds x="599" y="385" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_11al4fw_di" cmmnElementRef="EntryCriterion_11al4fw">
+        <dc:Bounds x="589" y="413" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0wzkeug_di" cmmnElementRef="PlanItemOnPart_0wzkeug" targetCMMNElementRef="EntryCriterion_11al4fw" isStandardEventVisible="true">
+        <di:waypoint xsi:type="dc:Point" x="403" y="428" />
+        <di:waypoint xsi:type="dc:Point" x="589" y="427" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="440" y="407.5" width="51" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+    </cmmndi:CMMNDiagram>
+  </cmmndi:CMMNDI>
+</cmmn:definitions>

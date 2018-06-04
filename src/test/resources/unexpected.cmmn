@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:di="http://www.omg.org/spec/CMMN/20151109/DI" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Test" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="1.11.2">
+  <cmmn:case id="UnexpectedCase" name="A case with unexpected behaviour">
+    <cmmn:casePlanModel id="CasePlanModelWithUnexpectedBehaviour" name="A CasePlanModel with unexpected behaviour">
+      <cmmn:planItem id="SomeStagePlanItem" definitionRef="SomeStage" />
+      <cmmn:planItem id="TriggeringPlanItem" definitionRef="TriggeringTask" />
+      <cmmn:stage id="SomeStage" name="some stage">
+        <cmmn:planItem id="TriggeredPlanItem" definitionRef="TriggeredTask">
+          <cmmn:entryCriterion id="EntryCriterion_11al4fw" sentryRef="Sentry_12w5clz" />
+        </cmmn:planItem>
+        <cmmn:sentry id="Sentry_12w5clz">
+          <cmmn:planItemOnPart id="PlanItemOnPart_0wzkeug" sourceRef="TriggeringPlanItem">          <cmmn:standardEvent>complete</cmmn:standardEvent>
+</cmmn:planItemOnPart>
+        </cmmn:sentry>
+        <cmmn:humanTask id="TriggeredTask" name="triggered task" />
+      </cmmn:stage>
+      <cmmn:humanTask id="TriggeringTask" name="triggering task" />
+    </cmmn:casePlanModel>
+  </cmmn:case>
+  <cmmndi:CMMNDI>
+    <cmmndi:CMMNDiagram id="_5a66685b-5f57-4e2f-b1d1-acca4fae04b2">
+      <cmmndi:Size xsi:type="dc:Dimension" width="500" height="500" />
+      <cmmndi:CMMNShape id="DI_CasePlanModel_1" cmmnElementRef="CasePlanModelWithUnexpectedBehaviour">
+        <dc:Bounds x="191" y="86" width="640" height="232" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_01g67oj_di" cmmnElementRef="SomeStagePlanItem">
+        <dc:Bounds x="548" y="106" width="198" height="186" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0ht95v2_di" cmmnElementRef="TriggeringPlanItem">
+        <dc:Bounds x="300" y="165" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0wnqw5k_di" cmmnElementRef="TriggeredPlanItem">
+        <dc:Bounds x="600" y="161" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_11al4fw_di" cmmnElementRef="EntryCriterion_11al4fw">
+        <dc:Bounds x="590" y="189" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0wzkeug_di" cmmnElementRef="PlanItemOnPart_0wzkeug" targetCMMNElementRef="EntryCriterion_11al4fw" isStandardEventVisible="true">
+        <di:waypoint xsi:type="dc:Point" x="400" y="205" />
+        <di:waypoint xsi:type="dc:Point" x="590" y="203" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="438" y="183" width="51" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+    </cmmndi:CMMNDiagram>
+  </cmmndi:CMMNDI>
+</cmmn:definitions>
