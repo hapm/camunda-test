@@ -1,0 +1,11 @@
+/bin/
+/.classpath
+/.project
+.gradle
+/build/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+# gradle/wrapper/gradle-wrapper.properties
+/settings.gradle
+/.settings
